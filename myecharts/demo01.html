@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>医疗数据溯源共享平台</title>
+    <link rel="stylesheet" href="echarts/less/index.css"/>
+</head>
+<body>
+<!--头部盒子-->
+<header id="header_container">
+    <h1>医疗数据溯源共享平台</h1>
+    <div class="showtime"></div>
+</header>
+<!--主体-->
+<section class="mainbox">
+    <!--左侧盒子-->
+    <div class="column">
+        <div class="panel bar">
+            <h2>机构用户数</h2>
+            <div class="chart"></div>
+            <!--panel底部的盒子-->
+            <div class="panel-footer"></div>
+        </div>
+        <div class="panel line">
+            <h2>机构病例数
+                <a href="javascript:;">2020</a>
+                <a href="javascript:;">2021</a>
+            </h2>
+            <div class="chart"></div>
+            <!--panel底部的盒子-->
+            <div class="panel-footer"></div>
+        </div>
+        <div class="panel pie">
+            <h2>用户访问数</h2>
+            <div class="chart"></div>
+            <!--panel底部的盒子-->
+            <div class="panel-footer"></div>
+        </div>
+    </div>
+
+
+    <!--中间盒子-->
+    <div class="column">
+        <!--上部数字-->
+        <!-- no模块制作 -->
+        <div class="no">
+            <div class="no-hd">
+                <ul>
+                    <li>185</li>
+                    <li>152</li>
+                </ul>
+            </div>
+            <div class="no-bd">
+                <ul>
+                    <li>系统消息数</li>
+                    <li>系统访客数</li>
+                </ul>
+            </div>
+        </div>
+        <!--map地图盒子-->
+        <div class="map">
+            <!--地图图片-->
+            <div class="map1"></div>
+            <!--旋转小球-->
+            <div class="map2"></div>
+            <!--逆时针旋转的圈-->
+            <div class="map3"></div>
+            <!--地图模块-->
+            <div class="chart"></div>
+        </div>
+    </div>
+
+
+    <!--右边盒子-->
+    <div class="column">
+        <div class="panel bar2">
+            <h2>机构病例数</h2>
+            <div class="chart"></div>
+            <!--panel底部的盒子-->
+            <div class="panel-footer"></div>
+        </div>
+        <div class="panel line2">
+            <h2>病例溯源数</h2>
+            <div class="chart"></div>
+            <!--panel底部的盒子-->
+            <div class="panel-footer"></div>
+        </div>
+        <div class="panel pie2">
+            <h2>用户地区分布图</h2>
+            <div class="chart"></div>
+            <!--panel底部的盒子-->
+            <div class="panel-footer"></div>
+        </div>
+    </div>
+</section>
+</body>
+
+<script>
+    /**
+     * 显示实现
+     * @type {Element}
+     */
+    var element = document.querySelector(".showtime");
+    setTimeout(showTime, 1000);
+
+    /**
+     * 生成格式化的时间
+     */
+    function showTime() {
+        var date = new Date();
+        var fullYear = date.getFullYear();
+        var month = date.getMonth();
+        var week = date.getDay();//星期
+        var day = date.getDate();//一月第几天
+        var hours = date.getHours();
+        var minutes = date.getMinutes();
+        var seconds = date.getSeconds();
+        var dd = fullYear + " 年 " + (month + 1) + " 月 " + day + " 日 " + "  " + hours + " 时 " + minutes + " 分 " + seconds + " 秒 " + " 星期" + week;
+        element.innerHTML = dd;
+        setTimeout(showTime, 1000) //setTimeout是超时调用， 使用递归模拟间歇调用
+    }
+</script>
+<script src="echarts/js/flexible.js"></script>
+<script src="echarts/js/echarts.min.js"></script>
+<script src="echarts/js/jquery.js"></script>
+<script src="echarts/js/china.js"></script>
+<script src="echarts/js/mychart.js"></script>
+</html>

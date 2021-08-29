@@ -1,0 +1,38 @@
+//命名匹配 有点类似 super用法 必须放到前面
+/*.triangle(@_ , @c){
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  height: 0;
+  width: 0;
+  //可变参数引用
+  .border(40px , solid)
+}
+//可变参数 @arguments  感觉没什么乱用
+.border(@1 , @2){
+  border: @arguments;
+}
+*/
+//继承
+.triangle{
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  height: 0;
+  width: 0;
+  border:40px solid;
+}
+
+//.triangle不带括号，会输出到css，普通混合
+.triangle(R,  @c:pink){
+  border-color: transparent @c transparent  transparent;
+}
+.triangle(B , @c:pink){
+  border-color: transparent transparent @c transparent;
+}
+
+

@@ -1,0 +1,329 @@
+//css初始化
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; //盒模型 中 内边距和边框包含在width内
+  //例如，假如您需要并排放置两个带边框的框，可通过将 box-sizing 设置为 "border-box"。这可令浏览器呈现出带有指定宽度和高度的框，并把边框和内边距放入框中。
+}
+
+//li的style
+li {
+  list-style: none; //没有前面的标志
+}
+
+/* 声明字体*/
+@font-face {
+  font-family: electronicFont;
+  src: url(../font/DS-DIGIT.TTF);
+}
+
+//body
+/*body {
+  //background: url(../images/bg.jpg) no-repeat top center; //背景 顶部  居中
+  background-image: url(../images/bg.jpg);
+  background-position: center 0;
+  background-repeat: no-repeat;
+  background-attachment:fixed;
+  background-size: cover;
+  line-height: 1.15; //行高
+}*/
+body {
+  background: url(../images/bg.jpg) no-repeat top center;
+  line-height: 1.15;
+}
+
+//头部盒子
+header {
+  position: relative;
+  height: 1.25rem; //高度 100px
+  background: url("../images/head_bg.png") no-repeat; //背景图片 不平铺（重复）
+  background-size: 100% 100%; //背景上下100%
+  h1 {
+    font-size: 0.475rem; //文字大小 38px
+    color: aliceblue; //颜色
+    text-align: center; //文本居中
+    line-height: 1rem; //行高   80px
+  }
+
+  .showtime {
+    /*子绝父相*/
+    position: absolute;
+    //position: fixed; // 固定在右上角
+    right: 0.375rem; //30px
+    top: 0.375rem; //顶部距离30px
+    line-height: 0.9375rem; //行高75px
+    font-size: 0.25rem; //字体大小20px
+    color: rgba(255, 255, 255, 0.7);
+  }
+}
+
+//页面主体盒子
+.mainbox {
+  display: flex; //Flex是Flexible Box的缩写，意为"弹性布局"，用来为盒状模型提供最大的灵活性
+  min-width: 1024px;
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0.125rem 0.125rem 0;
+
+  .column {
+    flex: 3; // 占3份
+    //nth-child(n) 选择器匹配属于其父元素的第 N 个子元素，不论元素的类型。
+    &:nth-child(2) {
+      flex: 5; // 占5份
+      margin: 0rem 0.125rem 0.1875rem;
+      overflow: hidden; //隐藏底部多余的
+    }
+  }
+
+
+  //公共面板panel样式
+  .panel {
+    position: relative;
+    height: 3.875rem; //高度310px
+    border: 1px solid rgba(25, 186, 139, 0.17); //边框
+    padding: 0rem 0.1875rem 0.5rem 0.1875rem; //内边距上右下左0rem 0.1875rem 0.5rem 0.1875rem
+    margin-bottom: 0.1875rem; //下外边距 0.1875rem
+    background: url("../images/line.png") rgba(255, 255, 255, 0.03); //背景
+    //上面两个角制作  :before 选择器在被选元素的内容前面插入内容。
+    &:before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 10px;
+      height: 10px;
+      border-left: 2px solid #02a6b5;
+      border-top: 2px solid #02a6b5;
+      content: "";
+    }
+
+    //上面两个角制作  :after 选择器在被选元素的内容后面插入内容。
+    &:after {
+      position: absolute; //子绝父相
+      top: 0; //顶部
+      right: 0; //左侧
+      width: 10px; //宽度
+      height: 10px; //高度
+      border-right: 2px solid #02a6b5; //右侧边框线
+      border-top: 2px solid #02a6b5; // 顶部边框线
+      content: "";
+    }
+
+    .panel-footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      //下面两个角制作  :before 选择器在被选元素的内容前面插入内容。
+      &:before {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 10px;
+        height: 10px;
+        border-left: 2px solid #02a6b5;
+        border-bottom: 2px solid #02a6b5;
+        content: "";
+      }
+
+      //下面两个角制作  :after 选择器在被选元素的内容后面插入内容。
+      &:after {
+        position: absolute; //子绝父相
+        bottom: 0; //顶部
+        right: 0; //左侧
+        width: 10px; //宽度
+        height: 10px; //高度
+        border-right: 2px solid #02a6b5; //右侧边框线
+        border-bottom: 2px solid #02a6b5; // 顶部边框线
+        content: "";
+      }
+    }
+  }
+
+  h2 {
+    height: 0.6rem; //48px
+    color: #fff;
+    line-height: 0.6rem; //48px
+    text-align: center;
+    font-size: 0.25rem; //20px
+    font-weight: 400;
+
+    a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 0.125rem;
+    }
+  }
+
+  .chart {
+    height: 3rem; //240px
+    // background-color: pink; //pink
+  }
+}
+
+//中间盒子的no
+.no {
+  background: rgba(101, 132, 226, 0.1);
+  padding: 0.1875rem; //15px
+  .no-hd {
+    position: relative;
+    border: 1px solid rgba(25, 186, 139, 0.17);
+
+    /*上面的角*/
+
+    &:before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 30px;
+      height: 10px;
+      border-top: 2px solid #02a6b5;
+      border-left: 2px solid #02a6b5;
+      content: ""; //内容为空占坑
+    }
+
+    /*下面的角*/
+
+    &:after {
+      position: absolute;
+      content: ""; //内容为空占坑
+      bottom: 0;
+      right: 0;
+      width: 30px;
+      height: 10px;
+      border-bottom: 2px solid #02a6b5;
+      border-right: 2px solid #02a6b5;
+    }
+
+    ul {
+      display: flex;
+
+      li {
+        position: relative;
+        flex: 1; //左右各一份
+        line-height: 1rem; //80px
+        font-size: 0.875rem; //70px
+        color: #ffeb7b;
+        text-align: center;
+        font-family: "electronicFont";
+
+        &:first-child:after {
+          content: "";
+          position: absolute;
+          right: 0;
+          height: 50%;
+          width: 1px;
+          background: rgba(255, 255, 255, 0.2);
+          top: 25%;
+        }
+      }
+    }
+  }
+
+  /*no-bd*/
+
+  .no-bd {
+    ul {
+      display: flex;
+
+      li {
+        flex: 1;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.225rem;
+        height: 0.5rem;
+        line-height: 0.5rem;
+        padding: 0.125rem;
+      }
+    }
+  }
+}
+
+//地图盒子
+.map {
+  position: relative;
+  height: 10.125rem;
+
+  .chart {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 10.125rem; //810px
+    width: 100%;
+    //background-color: pink;
+    z-index: 5; //z-index 属性设置元素的堆叠顺序。拥有更高堆叠顺序的元素总是会处于堆叠顺序较低的元素的前面
+  }
+
+  .map1 {
+    position: absolute;
+    height: 6.475rem;
+    width: 6.475rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: url("../images/map.png") no-repeat;
+    background-size: 100% 100%; //背景图跟着浏览器缩放
+    opacity: 0.3; //透明度
+  }
+
+  .map2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8.0375rem;
+    height: 8.0375rem;
+    background-image: url(../images/lbx.png);
+    opacity: 0.6; //透明度
+    animation: rotate1 15s linear infinite; //动画  15s 匀速 无限循环
+    z-index: 2;
+  }
+
+  /*
+  //旋转小飞机
+    .map3 {
+    position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 7.075rem;
+      height: 7.075rem;
+      background-image: url(../images/jt.png);
+      opacity: 0.6; //透明度
+      animation: rotate2 10s linear infinite;
+      z-index: 3;
+    }*/
+
+
+  /*定义动画 将动画与 div 元素绑定*/
+  @keyframes rotate1 {
+    //保持位置不变，从0度旋转到360度
+    from {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+  /*定义动画 将动画与 div 元素绑定*/
+  @keyframes rotate2 {
+    //保持位置不变，从0度旋转到360度
+    from {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+      transform: translate(-50%, -50%) rotate(-360deg);
+    }
+  }
+}
+
+/* 约束屏幕尺寸 */
+@media screen and (max-width: 1024px) {
+  html {
+    font-size: 42px !important;
+  }
+}
+@media screen and (min-width: 1920px) {
+  html {
+    font-size: 80px !important;
+  }
+}
